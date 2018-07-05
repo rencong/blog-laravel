@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="4px" height="13px" viewBox="0 0 4 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>异常</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="9-执行详情3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-909.000000, -709.000000)">
+        <g id="节点" transform="translate(481.000000, 581.000000)" fill="#FFFFFF">
+            <g id="异常" transform="translate(428.000000, 128.000000)">
+                <path d="M3.33333333,0 L0.666666667,0 C0.298666667,0 0,0.288 0,0.642857143 C0,0.658928571 0.00866666667,0.672428571 0.00933333333,0.6885 L0.00133333333,0.6885 L0.668,8.40278571 L0.676,8.40214286 C0.701333333,8.73514286 0.982,9 1.33333333,9 L2.66666667,9 C3.018,9 3.29866667,8.73514286 3.324,8.40214286 L3.332,8.40278571 L3.99866667,0.6885 L3.99066667,0.6885 C3.992,0.672428571 4,0.658928571 4,0.642857143 C4,0.288 3.70133333,0 3.33333333,0" id="Path"></path>
+                <path d="M2.5,10 C1.672,10 1,10.672 1,11.5 C1,12.328 1.672,13 2.5,13 C3.328,13 4,12.328 4,11.5 C4,10.672 3.328,10 2.5,10" id="Path"></path>
+            </g>
+        </g>
+    </g>
+</svg>

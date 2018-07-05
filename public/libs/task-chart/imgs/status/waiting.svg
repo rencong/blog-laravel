@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="11px" height="11px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>waiting</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="9-执行详情3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-1157.000000, -881.000000)" stroke-linecap="round" stroke-linejoin="round">
+        <g id="待执行" transform="translate(1145.000000, 873.000000)" stroke="#FFFFFF" stroke-width="2">
+            <polyline id="waiting" transform="translate(17.170354, 13.829646) rotate(-270.000000) translate(-17.170354, -13.829646) " points="13.1703535 17.8296465 21.1703535 17.8296465 21.1366148 9.82964646"></polyline>
+        </g>
+    </g>
+</svg>

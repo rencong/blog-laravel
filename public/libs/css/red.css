@@ -1,0 +1,54 @@
+/* iCheck plugin Flat skin, red
+----------------------------------- */
+.icheckbox_flat-red,
+.iradio_flat-red {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    background: url('/img/libs/red.svg') no-repeat;
+    border: none;
+    cursor: pointer;
+}
+.icheckbox_flat-red {
+    width: 14px;
+    height: 14px; 
+    border-radius: 2px;
+}
+.iradio_flat-red {
+    width: 12px;
+    height: 12px;
+}
+
+.icheckbox_flat-red {
+    background-position: 0 0;
+}
+    .icheckbox_flat-red.hover {
+        background-position: 0 -19px;
+        box-shadow: 0 0 2px #e2003b;
+    }
+    .icheckbox_flat-red.checked {
+        background-position: -22px 0;
+    }
+    .icheckbox_flat-red.disabled {
+        background-position: -44px 0;
+        cursor: not-allowed;
+    }
+    .icheckbox_flat-red.checked.disabled {
+        background-position: -66px 0;
+    }
+
+.iradio_flat-red {
+    background-position: -88px 0;
+}
+    .iradio_flat-red.checked {
+        background-position: -110px 0;
+    }
+    .iradio_flat-red.disabled {
+        background-position: -132px 0;
+        cursor: not-allowed;
+    }
+    .iradio_flat-red.checked.disabled {
+        background-position: -154px 0;
+    }
