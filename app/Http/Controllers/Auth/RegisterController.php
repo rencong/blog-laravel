@@ -7,6 +7,7 @@ use App\Model\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -76,25 +77,42 @@ class RegisterController extends Controller
     {
         try {
             $this->validate($request, [
-                'username' => 'required|string',
+                'name'     => 'required|string',
                 'email'    => 'required|string',
                 'password' => 'required|string',
-//                'username' => 'required|string|max:255',
+//                'name' => 'required|string|max:255',
 //                'email'    => 'required|string|email|max:255|unique:users',
 //                'password' => 'required|string|min:6|confirmed',
             ]);
-            $data = $request->all();
-
-            User::create([
-                'name'      => $data['username'],
-                'email'     => $data['email'],
-                'password'  => $data['password'],
+            $data = [
+                'avatar'       => 'images/default-avatar.png',
+                'confirm_code' => str_random(48),
                 'api_token' => str_random(60)
-            ]);
+            ];
+            $user = User::create(array_merge($request->all(), $data));
+
+            $view = 'email.register';
+            $subject = '验证邮箱';
+            $this->sendTo($view, $subject, $user, $data);
             return apiSuccess();
         } catch (\Exception $e) {
             return apiError($e->getMessage());
         }
 
+    }
+
+
+    /**
+     * 发送邮件
+     * @param $view
+     * @param $subject
+     * @param $user
+     * @param array $data
+     */
+    public function sendTo($view, $subject, $user, $data = [])
+    {
+        Mail::send($view, $data, function ($message) use ($user, $subject) {
+            $message->to($user->email)->subject($subject);
+        });
     }
 }

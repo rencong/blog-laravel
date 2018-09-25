@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Model\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -44,14 +43,17 @@ class LoginController extends Controller
     {
         try {
             $this->validate($request, [
-                'username' => 'required|string',
+                'email'    => 'required|string',
                 'password' => 'required|string',
             ]);
-            $email = $request->input('username');
+            $email = $request->input('email');
             $password = $request->input('password');
 
             $user = User::where('email', $email)->where('password', $password)->first();
             if ($user) {
+                if ($user->is_confirmed != 1) {
+                    return apiError('邮箱没验证');
+                }
                 return apiSuccess($user);
             } else {
                 return apiError('用户名或密码错误，请重新登录');
@@ -61,6 +63,24 @@ class LoginController extends Controller
         }
     }
 
+    /**
+     * 验证邮件
+     * @param $confirm_code
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function confirmEmail($confirm_code)
+    {
+        $user = User::where('confirm_code', $confirm_code)->first();
+        if (is_null($user)) {
+            return "没找到";
+        }
+
+        $user->is_confirmed = 1;
+        $user->confirm_code = str_random(48);
+        $user->save();
+        return "验证成功";
+//        return redirect('user/login');
+    }
 
 
 }

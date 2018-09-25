@@ -24,3 +24,5 @@ Route::group(['prefix' => 'article'], function () {
     Route::post('/created', 'ArticleController@save')->name('article.save');
     Route::post('/update', 'ArticleController@update')->name('article.update');
 });
+//验证邮箱
+Route::get('/verify/{confirm_code}', 'Auth\LoginController@confirmEmail')->name('verify.email');
