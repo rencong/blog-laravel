@@ -17,7 +17,7 @@ class ArticleController extends Controller
         try {
             $user = Auth::guard('api')->user();
             if ($user) {
-                return apiSuccess($user->id);
+                return apiSuccess($user->only(['id','name','email','avatar']));
             } else {
                 return apiError('用户没有登录');
             }
@@ -30,9 +30,9 @@ class ArticleController extends Controller
     {
         $keyword = $request->input('keyword');
         if (!empty($keyword)) {
-            $articles = Article::where('title', 'like', "%{$keyword}%")->with('user')->latest()->paginate(10);
+            $articles = Article::where('title', 'like', "%{$keyword}%")->with('user','comments')->latest()->paginate(10);
         } else {
-            $articles = Article::with('user')->latest()->paginate(10);
+            $articles = Article::with('user','comments')->latest()->paginate(10);
         }
         return apiSuccess($articles);
     }
@@ -90,7 +90,7 @@ class ArticleController extends Controller
     public function apiShow(Request $request)
     {
         $id = $request->input('id');
-        $article = Article::find($id);
+        $article = Article::whereId($id)->with('comments.user')->first();
         if (!$article) {
             return apiError('Article not found');
         }

@@ -15,12 +15,15 @@ Route::group(['middleware' => ['auth:api', 'api']], function () {
     Route::get('/article/user/list', 'Api\ArticleController@apiUserList')->name('api.article.user.list');
     Route::get('/article/edit/{id?}', 'Api\ArticleController@apiEdit')->name('api.article.edit');
     Route::post('/article/save', 'Api\ArticleController@apiSave')->name('api.article.save');
+    Route::post('/comment/save', 'Api\CommentController@apiSave')->name('api.comment.save');
     Route::post('/article/delete', 'Api\ArticleController@apiDelete')->name('api.article.delete');
     Route::get('/article/detail', 'Api\ArticleController@apiShow')->name('api.article.show');
     Route::get('/user/info', 'Api\ArticleController@apiUserInfo')->name('api.user.info');
+    Route::post('/user/avatar', 'Api\UserController@changeAvatar')->name('api.user.change.avatar');//更新头像
 });
 
 Route::group(['middleware' => ['api']], function () {
     Route::post('user/login', 'Auth\LoginController@apiLogin')->name('api.user.login');
     Route::post('user/register', 'Auth\RegisterController@apiRegister')->name('api.user.register');
 });
+
